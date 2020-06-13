@@ -35,7 +35,6 @@ namespace Assets.Scripts.Managers
 						position = point,
 						time = Time.time
 					};
-					// TODO: Call registered user action
 					ActiveEntity.RegisterAction(action);
                     ActiveEntity.ExectuteAction(action);
 				}

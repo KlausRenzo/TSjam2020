@@ -16,12 +16,10 @@ namespace Assets.Scripts.Player
 		private void Start()
 		{
 		}
-
 		public void RegisterAction(InputAction inputAction)
 		{
 			history.Add(inputAction);
 		}
-
 		private IEnumerator PlaybackActionHistory()
 		{
 			InputAction lastAction = history[0];

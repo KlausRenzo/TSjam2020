@@ -505,6 +505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  path: []
+  maxDistance: 0.05
 --- !u!195 &813422451
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -768,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aff3ad27f37dd6498256d2b14d81cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 0b010d41b94d2b44e9e9b85f9873bddd, type: 2}
   entity: {fileID: 0}
   locomotion: {fileID: 0}
 --- !u!114 &1758973281
@@ -807,7 +809,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -832,3 +834,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  path: []
+  maxDistance: 0.05

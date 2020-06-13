@@ -36,9 +36,12 @@ namespace Assets.Scripts.Managers
 						time = Time.time
 					};
 					// TODO: Call registered user action
-					ActiveEntity.DoAction(action);
+					ActiveEntity.RegisterAction(action);
+                    ActiveEntity.ExectuteAction(action);
 				}
 			}
 		}
+
+
 	}
 }

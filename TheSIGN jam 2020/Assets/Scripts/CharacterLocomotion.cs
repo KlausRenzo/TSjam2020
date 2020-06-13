@@ -13,7 +13,7 @@ public class CharacterLocomotion : MonoBehaviour
         agent.speed = character.stats.speed;
     }
 
-    void ChangeDirection(Vector3 target)
+    public void ChangeTarget(Vector3 target)
     {
         agent.SetDestination(target);
     }

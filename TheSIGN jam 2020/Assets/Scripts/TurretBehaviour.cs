@@ -9,11 +9,20 @@ public class TurretBehaviour : MonoBehaviour
     [SerializeField] private Projectile projectile;
     [SerializeField] private float fireRate = 1;
     [SerializeField] private Transform barrelTip;
+    
     private float timer;
+    private Vector3 startedForward;
+    [SerializeField] private float treshOldDot = 0.5f;
+
+    private void Awake()
+    {
+        startedForward = transform.forward;
+    }
 
     private void Update()
     {
         if(!IsTargetInArea()) return;
+        if(!IsPlayerInFrontOfTarget()) return;
         
         LookTowardsTarget();
         
@@ -65,5 +74,13 @@ public class TurretBehaviour : MonoBehaviour
     {
         var rotationDirection = Vector3.RotateTowards(mobilePart.forward, target.position - barrelTip.position, rotationSpeed * Time.deltaTime, 0);
         mobilePart.rotation = Quaternion.LookRotation(rotationDirection);
+    }
+
+    private bool IsPlayerInFrontOfTarget()
+    {
+        float dot = Vector3.Dot(startedForward, (target.position - transform.position).normalized);
+        //Debug.Log($"{dot}");
+        
+        return dot > treshOldDot;
     }
 }

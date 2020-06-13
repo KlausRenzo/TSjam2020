@@ -6,12 +6,17 @@ public class Projectile : MonoBehaviour
 {
 	private Rigidbody rb;
 	[SerializeField] private float projectileSpeed = 2;
-
-	public event Action PlayerHitted;
+	[SerializeField] private ParticleSystem hitParticle;
+	[SerializeField] private Sound startSound;
+	[SerializeField] private Sound hitSound;
 	
+	public event Action PlayerHitted;
+	private AudioSource source;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+		source = GetComponent<AudioSource>();
+		startSound.Play(source);
 	} 
 	
 	public void SetVelocity(Vector3 dir)
@@ -20,11 +25,23 @@ public class Projectile : MonoBehaviour
 		rb.velocity = dir * projectileSpeed;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnCollisionEnter(Collision other)
 	{
-		if (other.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player"))
 		{
 			PlayerHitted?.Invoke();
 		}
+
+		HandleDestruction();
+	}
+
+	private void HandleDestruction()
+	{
+		var particle = Instantiate(this.hitParticle, transform.position,Quaternion.identity);
+		particle.Play();
+		
+		hitSound.Play(source);
+		
+		Destroy(gameObject);
 	}
 }

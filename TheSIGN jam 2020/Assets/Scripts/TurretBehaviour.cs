@@ -42,7 +42,7 @@ public class TurretBehaviour : MonoBehaviour
     {
         Vector3 dir = (target.position - transform.position).normalized;
         
-        Debug.DrawLine(transform.position, dir);
+        Debug.DrawRay(transform.position, dir * 10);
         
         if (Physics.Raycast(transform.position, dir, out RaycastHit hit, float.PositiveInfinity))
         {
@@ -63,7 +63,7 @@ public class TurretBehaviour : MonoBehaviour
     
     private void LookTowardsTarget()
     {
-        var rotationDirection = Vector3.RotateTowards(mobilePart.forward, target.position, rotationSpeed * Time.deltaTime, 0);
+        var rotationDirection = Vector3.RotateTowards(mobilePart.forward, target.position - barrelTip.position, rotationSpeed * Time.deltaTime, 0);
         mobilePart.rotation = Quaternion.LookRotation(rotationDirection);
     }
 }

@@ -230,13 +230,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3389480120448986525}
-  m_LocalRotation: {x: 0, y: 0.030887421, z: 0, w: 0.99952286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.349, z: 1.328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1361874409820611746}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 3.54, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &7831742207419144390
 Light:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 25
+  m_Intensity: 30
   m_Range: 50
   m_SpotAngle: 5
   m_InnerSpotAngle: 1
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 5802198513409720140}
   - component: {fileID: 3174869467603046776}
   m_Layer: 0
-  m_Name: Turret_Cooock
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

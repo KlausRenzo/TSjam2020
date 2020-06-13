@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 496d2d956e034df389804f6feb451277, type: 3}
-  m_Name: Projectile
+  m_Name: ProjectileStart
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
-  volume: {x: 0.8, y: 1.2}
-  pitch: {x: 0.8, y: 1.2}
+  clip: {fileID: 8300000, guid: ec0aa655d40e4de49b42e5c663a9755b, type: 3}
+  volume: {x: 0.35714287, y: 0.75}
+  pitch: {x: 1.0178572, y: 1.4107143}

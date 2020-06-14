@@ -5,9 +5,9 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     public string movementAnimation, idleAnimation, deathAnimation;
-    private Animator animator;
+    [SerializeField]private Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }

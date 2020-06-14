@@ -8,10 +8,8 @@ public class OnTriggerDie : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var character = other.GetComponent<Character>();
-        Debug.Log("entrato");
         if(character != null)
         {
-            Debug.Log("WE");
             character.survival.Die();
         }
     }

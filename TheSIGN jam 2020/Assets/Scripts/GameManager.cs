@@ -7,10 +7,10 @@ using Sirenix.OdinInspector;
 
 public class GameManager : MonoBehaviour
 {
-    public Action<string> OnCharacterDeath;
     public List<Character> characters = new List<Character>();
     public Transform spawnPoint;
-    private int currentCharacter = -1;
+    public CharacterUI characterUi;
+    private int currentCharacterNumber = -1;
     private List<Collider> charactersColliders = new List<Collider>();
 
     public void Start()
@@ -22,27 +22,30 @@ public class GameManager : MonoBehaviour
     [Button]
     public void SetNextCharacter()
     {
-        if(currentCharacter != -1)
+        if(currentCharacterNumber != -1)
         {
-            OnCharacterDeath -= characters[currentCharacter].survival.Die;
+            characters[currentCharacterNumber].survival.OnDeath -= SetNextCharacter;
         }
-        currentCharacter++;
-        if(currentCharacter > characters.Count-1)
+        currentCharacterNumber++;
+        if(currentCharacterNumber > characters.Count-1)
         {
             return;
         }
-        for(int i = 0; i <= currentCharacter; i++)
+        for(int i = 0; i <= currentCharacterNumber; i++)
         {
             characters[i].gameObject.SetActive(true);
             characters[i].transform.position = spawnPoint.position;
+            characters[i].Reset();
             //todo resettare a modino
         }
-        ServiceLocator.Locate<InputManager>().ActiveEntity = characters[currentCharacter].entity;
-        for (int i = 0; i < currentCharacter; i++)
+        ServiceLocator.Locate<InputManager>().ActiveEntity = characters[currentCharacterNumber].entity;
+        for (int i = 0; i < currentCharacterNumber; i++)
         {
             characters[i].entity.GOJHONNYGO();
         }
-        OnCharacterDeath += characters[currentCharacter].survival.Die;
+        characters[currentCharacterNumber].survival.OnDeath += SetNextCharacter;
+
+        characterUi.UpdateImages(currentCharacterNumber);
     }
     public void SetCollisionAvoidance()
     {

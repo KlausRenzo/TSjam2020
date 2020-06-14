@@ -8,6 +8,7 @@ public class CharacterSurvival : MonoBehaviour
 {
     public Character character;
     [ShowInInspector]private int currentHealth;
+    public Action OnDeath;
 
     public event Action<int> PlayerDamagedBeforeHealthIsSet;
     public int CurrentHealth => currentHealth;
@@ -30,12 +31,14 @@ public class CharacterSurvival : MonoBehaviour
     public void Die(string animationName = null)
     {
         character.currentState = CharacterState.dead;
-
         string animationToPlay = (animationName == null) ? character.animationHandler.deathAnimation : animationName;
         character.animationHandler.Play(animationToPlay);
+        Invoke("CallOnDeath", 0.5f);
     }
     public void ResetHealth()
     {
         currentHealth = character.stats.health;
     }
+
+    public void CallOnDeath() => OnDeath?.Invoke();
 }

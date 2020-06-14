@@ -26,6 +26,7 @@ public class Character : MonoBehaviour
 
     public void Reset()
     {
+        currentState = CharacterState.alive;
         animationHandler.Play(animationHandler.idleAnimation);
         survival.ResetHealth();
     }

@@ -9,28 +9,33 @@ public class TurretBehaviour : MonoBehaviour
     [SerializeField] private Projectile projectile;
     [SerializeField] private float fireRate = 1;
     [SerializeField] private Transform barrelTip;
-    
+    private CharacterState currentState = CharacterState.alive;
     private float timer;
     private Vector3 startedForward;
     [SerializeField] private float treshOldDot = 0.5f;
+    private Animator anim;
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         startedForward = transform.forward;
     }
 
     private void Update()
     {
-        Transform actualTarget = IsTargetInArea();
-        if(actualTarget == null) return;
-        
-        if(!IsPlayerInFrontOfTurret(actualTarget)) return;
-        
-        LookTowardsTarget(actualTarget);
-        
-        if (CanShoot())
+        if (currentState == CharacterState.alive)
         {
-            Shoot();
+            Transform actualTarget = IsTargetInArea();
+            if (actualTarget == null) return;
+
+            if (!IsPlayerInFrontOfTurret(actualTarget)) return;
+
+            LookTowardsTarget(actualTarget);
+
+            if (CanShoot())
+            {
+                Shoot();
+            }
         }
     }
 
@@ -90,4 +95,11 @@ public class TurretBehaviour : MonoBehaviour
         
         return dot > treshOldDot;
     }
+
+    public void EnableTurret(bool b)
+    {
+        currentState = (b) ? CharacterState.alive : CharacterState.dead;
+        anim.Play((b) ? "idle" : "destroied");
+    }
 }
+

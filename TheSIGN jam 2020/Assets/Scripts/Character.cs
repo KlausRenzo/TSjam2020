@@ -8,7 +8,10 @@ public class Character : MonoBehaviour
     public CharacterStats stats;
     public CharacterEntity entity;
     public CharacterLocomotion locomotion;
+    public CharacterSurvival survival;
     public AnimationHandler animationHandler;
+
+    public CharacterState currentState = CharacterState.alive;
     
     void Awake()
     {
@@ -17,15 +20,15 @@ public class Character : MonoBehaviour
         entity = GetComponent<CharacterEntity>();
         entity.character = this;
         animationHandler = GetComponent<AnimationHandler>();
+        survival = GetComponent<CharacterSurvival>();
+        survival.character = this;
     }
 
-    void Update()
+    public void Reset()
     {
-        
-    }
-
-    public void Die()
-    {
-
+        animationHandler.Play(animationHandler.idleAnimation);
+        survival.ResetHealth();
     }
 }
+
+public enum CharacterState { alive, dead };

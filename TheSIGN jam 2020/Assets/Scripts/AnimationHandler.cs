@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-    public string movementAnimation, idleAnimation;
+    public string movementAnimation, idleAnimation, deathAnimation;
     private Animator animator;
 
     private void Start()

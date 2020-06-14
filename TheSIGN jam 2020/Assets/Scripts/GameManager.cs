@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 public class GameManager : MonoBehaviour
 {
-    public Action OnCharacterDeath;
+    public Action<string> OnCharacterDeath;
     public List<Character> characters = new List<Character>();
     public Transform spawnPoint;
     private int currentCharacter = -1;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if(currentCharacter != -1)
         {
-            OnCharacterDeath -= characters[currentCharacter].Die;
+            OnCharacterDeath -= characters[currentCharacter].survival.Die;
         }
         currentCharacter++;
         if(currentCharacter > characters.Count-1)
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             characters[i].entity.GOJHONNYGO();
         }
-        OnCharacterDeath += characters[currentCharacter].Die;
+        OnCharacterDeath += characters[currentCharacter].survival.Die;
     }
     public void SetCollisionAvoidance()
     {
@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
             {
                 Physics.IgnoreCollision(charactersColliders[i], charactersColliders[j],true);
             }
-           
         }
         foreach(var c in characters)
         {

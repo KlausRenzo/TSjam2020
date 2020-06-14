@@ -275,6 +275,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 6.6567163
       objectReference: {fileID: 0}
+    - target: {fileID: 4196462976783210532, guid: cc1577749438dd043844141b3c517e25,
+        type: 3}
+      propertyPath: animationEase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196462976783210532, guid: cc1577749438dd043844141b3c517e25,
+        type: 3}
+      propertyPath: animationDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196462976783210532, guid: cc1577749438dd043844141b3c517e25,
+        type: 3}
+      propertyPath: rotationAnchor
+      value: 
+      objectReference: {fileID: 6432967041882294787}
     - target: {fileID: 4196462976783210533, guid: cc1577749438dd043844141b3c517e25,
         type: 3}
       propertyPath: m_Name

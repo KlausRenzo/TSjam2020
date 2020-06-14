@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     public CharacterStats stats;
     public CharacterEntity entity;
     public CharacterLocomotion locomotion;
+    public AnimationHandler animationHandler;
     
     void Awake()
     {
@@ -15,6 +16,7 @@ public class Character : MonoBehaviour
         locomotion.character = this;
         entity = GetComponent<CharacterEntity>();
         entity.character = this;
+        animationHandler = GetComponent<AnimationHandler>();
     }
 
     void Update()

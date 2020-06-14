@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform [] targets;
     [SerializeField] private float rotationSpeed = 10;
     [SerializeField] private Transform mobilePart;
     [SerializeField] private Projectile projectile;
@@ -21,10 +21,12 @@ public class TurretBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if(!IsTargetInArea()) return;
-        if(!IsPlayerInFrontOfTarget()) return;
+        Transform actualTarget = IsTargetInArea();
+        if(actualTarget == null) return;
         
-        LookTowardsTarget();
+        if(!IsPlayerInFrontOfTurret(actualTarget)) return;
+        
+        LookTowardsTarget(actualTarget);
         
         if (CanShoot())
         {
@@ -47,23 +49,25 @@ public class TurretBehaviour : MonoBehaviour
         }    
     }
 
-    private bool IsTargetInArea()
+    private Transform IsTargetInArea()
     {
-        Vector3 dir = (target.position - barrelTip.position).normalized;
-        
-        Ray ray = new Ray(barrelTip.position,dir);
-        Debug.DrawRay(barrelTip.position,dir, Color.yellow, float.PositiveInfinity);
-        
-        if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity))
+        foreach (Transform target in targets)
         {
-            Debug.Log($"turret hitted {hit.collider.name}");
-            if (hit.collider.CompareTag("Player"))
+            Vector3 dir = (target.position - barrelTip.position).normalized;
+        
+            Ray ray = new Ray(barrelTip.position,dir);
+            Debug.DrawRay(barrelTip.position,dir, Color.yellow, float.PositiveInfinity);
+        
+            if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity))
             {
-                return true;
+                Debug.Log($"turret hitted {hit.collider.name}");
+                if (hit.collider.CompareTag("Player"))
+                {
+                    return target;
+                }
             }
         }
-        
-        return false;
+        return null;
     }
     
     private void Shoot()
@@ -73,13 +77,13 @@ public class TurretBehaviour : MonoBehaviour
     }
 
     
-    private void LookTowardsTarget()
+    private void LookTowardsTarget(Transform target)
     {
         var rotationDirection = Vector3.RotateTowards(mobilePart.forward, target.position - barrelTip.position, rotationSpeed * Time.deltaTime, 0);
         mobilePart.rotation = Quaternion.LookRotation(rotationDirection);
     }
 
-    private bool IsPlayerInFrontOfTarget()
+    private bool IsPlayerInFrontOfTurret(Transform target)
     {
         float dot = Vector3.Dot(startedForward, (target.position - transform.position).normalized);
         Debug.Log($"{dot}");

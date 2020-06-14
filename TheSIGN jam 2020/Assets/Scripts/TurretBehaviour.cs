@@ -49,17 +49,20 @@ public class TurretBehaviour : MonoBehaviour
 
     private bool IsTargetInArea()
     {
-        Vector3 dir = (target.position - transform.position).normalized;
+        Vector3 dir = (target.position - barrelTip.position).normalized;
         
-        Debug.DrawRay(transform.position, dir * 10);
+        Ray ray = new Ray(barrelTip.position,dir);
+        Debug.DrawRay(barrelTip.position,dir, Color.yellow, float.PositiveInfinity);
         
-        if (Physics.Raycast(transform.position, dir, out RaycastHit hit, float.PositiveInfinity))
+        if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity))
         {
+            Debug.Log($"turret hitted {hit.collider.name}");
             if (hit.collider.CompareTag("Player"))
             {
                 return true;
             }
         }
+        
         return false;
     }
     
@@ -79,7 +82,7 @@ public class TurretBehaviour : MonoBehaviour
     private bool IsPlayerInFrontOfTarget()
     {
         float dot = Vector3.Dot(startedForward, (target.position - transform.position).normalized);
-        //Debug.Log($"{dot}");
+        Debug.Log($"{dot}");
         
         return dot > treshOldDot;
     }

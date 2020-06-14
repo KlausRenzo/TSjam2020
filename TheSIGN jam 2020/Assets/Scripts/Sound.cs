@@ -11,6 +11,8 @@ public class Sound : ScriptableObject
 	[SerializeField, MinMaxSlider(0, 2)] private Vector2 volume = new Vector2(.8f, 1.2f);
 	[SerializeField, MinMaxSlider(0, 2)] private Vector2 pitch = new Vector2(.8f, 1.2f);
 
+	public float ClipLenght => clip.length;
+	
 	public void Play(AudioSource source)
 	{
 		SetUpValues(source);

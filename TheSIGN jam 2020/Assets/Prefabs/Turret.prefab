@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 5869196926605685510}
   - component: {fileID: 3627784127069045368}
   - component: {fileID: 1901122129556134280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,6 +424,7 @@ MonoBehaviour:
     type: 3}
   fireRate: 1
   barrelTip: {fileID: 206720639683199655}
+  treshOldDot: 0.5
 --- !u!1001 &5802198511505221560
 PrefabInstance:
   m_ObjectHideFlags: 0

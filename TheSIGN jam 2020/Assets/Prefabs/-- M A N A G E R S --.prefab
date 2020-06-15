@@ -55,7 +55,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   isPersistent: 0
-  camera: {fileID: 0}
   raycastLayer:
     serializedVersion: 2
     m_Bits: 55
@@ -71,6 +70,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7724df037c4d63b4dbf3771097c2ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  isPersistent: 0
   characters:
   - {fileID: 0}
   - {fileID: 0}
@@ -95,3 +104,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
+  animationDuration: 0.8
+  ease: 29

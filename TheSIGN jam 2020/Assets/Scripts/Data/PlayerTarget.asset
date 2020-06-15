@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerTarget
   m_EditorClassIdentifier: 
   speed: 12
-  health: 3
+  health: 1
   isFireProof: 0

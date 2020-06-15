@@ -39,7 +39,7 @@ public class TurretBehaviour : MonoBehaviour
 
 			LookTowardsTarget(actualTarget);
 
-			if (CanShoot())
+			if (CanShoot() )
 			{
 				Shoot(actualTarget.GetComponent<CharacterSurvival>());
 			}
@@ -64,6 +64,8 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		foreach (Transform target in targets)
 		{
+			if(target.GetComponent<Character>().currentState == CharacterState.dead) continue;
+			
 			Vector3 dir = (target.position - barrelTip.position).normalized;
 
 			Ray ray = new Ray(barrelTip.position, dir);

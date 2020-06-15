@@ -12,7 +12,8 @@ public class TurretBehaviour : MonoBehaviour
 	[SerializeField] private Transform barrelTip;
 	[SerializeField] private float range = 100;
 	[SerializeField] private int damageAmountPerShot = 1;
-
+    public GameObject smokeParticle;
+    private GameObject instantiatedSmoke;
 
 	private CharacterState currentState = CharacterState.alive;
 	private float timer;
@@ -26,6 +27,8 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 		startedForward = transform.forward;
+        instantiatedSmoke = Instantiate(smokeParticle, transform.position, Quaternion.identity);
+        instantiatedSmoke.SetActive(false);
 	}
 
 	private void Update()
@@ -108,6 +111,7 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		currentState = (b) ? CharacterState.alive : CharacterState.dead;
 		anim.Play((b) ? "idle" : "destroied");
+        instantiatedSmoke?.SetActive(!b);
         if(!b)
         {
             ServiceLocator.Locate<GameManager>().OnReset += Reset;

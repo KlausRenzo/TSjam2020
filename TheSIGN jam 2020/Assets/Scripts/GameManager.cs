@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.Scripts.Managers;
 using System;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Manager
 {
@@ -44,13 +45,14 @@ public class GameManager : Manager
         currentCharacterNumber++;
         if(currentCharacterNumber > characters.Count-1)
         {
-            return;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         for(int i = 0; i <= currentCharacterNumber; i++)
         {
             characters[i].gameObject.SetActive(true);
             characters[i].transform.position = spawnPoint.position;
             characters[i].Reset();
+            OnReset?.Invoke();
             //todo resettare a modino
         }
         ServiceLocator.Locate<InputManager>().ActiveEntity = characters[currentCharacterNumber].entity;

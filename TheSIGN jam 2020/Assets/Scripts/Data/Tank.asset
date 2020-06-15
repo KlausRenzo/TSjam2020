@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301845e2988ed4b4db192b020cbe5df9, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 8
   health: 8
+  isFireProof: 0

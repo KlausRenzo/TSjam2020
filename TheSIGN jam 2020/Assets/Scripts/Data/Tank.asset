@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tank
   m_EditorClassIdentifier: 
   speed: 8
-  health: 8
+  health: 15
   isFireProof: 0

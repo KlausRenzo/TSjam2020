@@ -417,13 +417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b98a76c9bf08db49948b9a3572ef277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targets: []
   rotationSpeed: 10
   mobilePart: {fileID: 1361874409820611746}
   projectile: {fileID: 5963442318824169747, guid: 743fd72419e7cf042bacc856e9376900,
     type: 3}
-  fireRate: 1
+  fireRate: 0.2
   barrelTip: {fileID: 206720639683199655}
+  range: 100
+  damageAmountPerShot: 1
   treshOldDot: 0.5
 --- !u!1001 &5802198511505221560
 PrefabInstance:

@@ -382,9 +382,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5802198513409720140}
   - component: {fileID: 3174869467603046776}
+  - component: {fileID: 935912533022281809}
+  - component: {fileID: 863553425656161105}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +428,41 @@ MonoBehaviour:
   barrelTip: {fileID: 206720639683199655}
   range: 100
   damageAmountPerShot: 1
+  smokeParticle: {fileID: 1714134906788111614, guid: 993d0d67809228c478be33c4c496b3c2,
+    type: 3}
   treshOldDot: 0.5
+--- !u!65 &935912533022281809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802198513409720141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.13, y: 5.66, z: 11.54}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &863553425656161105
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5802198513409720141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28409e83f0eb0d14e842d4a9281ba8b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5802198511505221560
 PrefabInstance:
   m_ObjectHideFlags: 0

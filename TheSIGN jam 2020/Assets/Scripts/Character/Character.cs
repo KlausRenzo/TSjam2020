@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public CharacterLocomotion locomotion;
     public CharacterSurvival survival;
     public AnimationHandler animationHandler;
+    public Sprite icon;
 
     public CharacterState currentState = CharacterState.alive;
 

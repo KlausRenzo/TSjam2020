@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     {
         SetCollisionAvoidance();
         SetNextCharacter();
+        var iconList = new List<Sprite>();
+        foreach(var c in characters)
+        {
+            iconList.Add(c.icon);
+        }
+        characterUi.InitialiteSprites(iconList);
     }
 
     [Button]

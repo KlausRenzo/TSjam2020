@@ -30,6 +30,7 @@ namespace Assets.Scripts.Managers
 
 				if (Physics.Raycast(screenPointToRay.origin, screenPointToRay.direction, out RaycastHit hit, Mathf.Infinity, raycastLayer))
 				{
+                    Debug.Log(hit.collider.name);
 					Vector3 point = hit.point;
 					InputAction action = new InputAction()
 					{

@@ -7,12 +7,17 @@ using UnityEngine;
 public class PressurePlate : SerializedMonoBehaviour
 {
 	[SerializeField] private IUnlockable item;
+    [SerializeField] private List<IUnlockable> gameObjectsToActivate = new List<IUnlockable>();
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
 			item.Unlock();
+            foreach(var obj in gameObjectsToActivate)
+            {
+                obj.Unlock();
+            }
 		}
 	}
 }

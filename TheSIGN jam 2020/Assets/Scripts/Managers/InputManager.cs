@@ -7,7 +7,7 @@ namespace Assets.Scripts.Managers
 {
 	public class InputManager : Manager
 	{
-		[SerializeField] private Camera camera;
+		private new Camera camera;
 		[SerializeField] private LayerMask raycastLayer;
 
 		public CharacterEntity ActiveEntity { get; set; }
@@ -18,6 +18,7 @@ namespace Assets.Scripts.Managers
 
 		protected override void OnManagerAwake()
 		{
+			camera = Camera.main;
 		}
 
 		private void Update()

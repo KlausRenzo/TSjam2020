@@ -29,15 +29,17 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 	{
 		if (isUnlocked)
 		{
-			rotationAnchor.DORotate(new Vector3(animationRotationAngle, 0, 0), animationDuration + 1).SetEase(animationEase);
+			rotationAnchor.DORotate(new Vector3(animationRotationAngle, 0, 0), animationDuration + 1.5f).SetEase(animationEase);
 		}
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.GetComponent<Character>() && isUnlocked)
+		var character = other.GetComponent<Character>(); 
+		if (character && isUnlocked)
 		{
-			LoadScene(levelNameToLoad);
+			if(character.stats.name == "PlayerTarget")
+				LoadScene(levelNameToLoad);
 		}
 	}
 

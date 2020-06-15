@@ -9,7 +9,7 @@ public class CharacterSurvival : MonoBehaviour
     public Character character;
     [ShowInInspector]private int currentHealth;
     public Action OnDeath;
-
+    [SerializeField] private Sound deathSound;
     public event Action<int,int> PlayerDamagedBeforeHealthIsSet;
     public int CurrentHealth => currentHealth;
     
@@ -48,6 +48,7 @@ public class CharacterSurvival : MonoBehaviour
     }
     public void Die(string animationName = null)
     {
+        deathSound.Play(GetComponent<AudioSource>());
         character.currentState = CharacterState.dead;
         string animationToPlay = (animationName == null) ? character.animationHandler.deathAnimation : animationName;
         character.animationHandler.Play(animationToPlay);

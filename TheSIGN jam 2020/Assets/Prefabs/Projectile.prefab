@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f486ddcb0634c21b7ce8be7aec0cacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 2
+  projectileSpeed: 30
   hitParticle: {fileID: 7711467602504595144, guid: 005c5cccba09bee48b4567dbb9fa82b5,
     type: 3}
   startSound: {fileID: 11400000, guid: 960984858c6f67d4ba2d3bc56922c158, type: 2}

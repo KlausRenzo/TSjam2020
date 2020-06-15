@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ProjectileHit
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: d145b2a5e89b9be43bb23983a41e8dd4, type: 3}
-  volume: {x: 0.8, y: 1.2}
+  volume: {x: 0.32271075, y: 0.6123437}
   pitch: {x: 0.8, y: 1.2}

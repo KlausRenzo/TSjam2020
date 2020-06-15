@@ -18,14 +18,23 @@ public class CharacterSurvival : MonoBehaviour
         ResetHealth();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damageAmount)
     {
         PlayerDamagedBeforeHealthIsSet?.Invoke(currentHealth);
         
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0, character.stats.health);
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, character.stats.health);
         if(currentHealth <= 0)
         {
             Die();
+        }
+    }
+
+    public IEnumerator TakeDamageOverTime(int damageAmount,float howOftenDamage)
+    {
+        while (character.currentState != CharacterState.dead)
+        {
+            TakeDamage(damageAmount);
+            yield return new WaitForSeconds(howOftenDamage);
         }
     }
     public void Die(string animationName = null)

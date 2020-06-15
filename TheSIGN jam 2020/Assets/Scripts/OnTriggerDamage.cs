@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class OnTriggerDamage : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        var character = other.GetComponent<Character>();
-        if(character != null)
-        {
-            if (character.stats.isFireProof)
-            {
-               DamageOverTime();
-            }
-            else
-            {
-                character.survival.Die();
-            }
-        }
-    }
+	[SerializeField] private float ticDamage = 1.5f;
+	[SerializeField] private int damageAmountPerTic = 1;
 
-    private void DamageOverTime()
-    {
-        return;
-    }
+	private void OnTriggerEnter(Collider other)
+	{
+		var character = other.GetComponent<Character>();
+		if (character != null)
+		{
+			if (character.stats.isFireProof)
+			{
+				StartCoroutine(character.survival.TakeDamageOverTime(damageAmountPerTic, ticDamage));
+			}
+			else
+			{
+				character.survival.TakeDamage(100); //shottato malissimo
+			}
+		}
+	}
 }

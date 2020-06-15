@@ -5,13 +5,22 @@ using Assets.Scripts.Managers;
 using System;
 using Sirenix.OdinInspector;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Manager
 {
+    public Action OnReset;
     public List<Character> characters = new List<Character>();
     public Transform spawnPoint;
     public CharacterUI characterUi;
     private int currentCharacterNumber = -1;
     private List<Collider> charactersColliders = new List<Collider>();
+
+    protected override void OnManagerDestroy()
+    {
+    }
+
+    protected override void OnManagerAwake()
+    {
+    }
 
     public void Start()
     {

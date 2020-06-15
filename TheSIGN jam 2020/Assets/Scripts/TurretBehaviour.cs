@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Managers;
+using System;
 using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
@@ -100,5 +101,18 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		currentState = (b) ? CharacterState.alive : CharacterState.dead;
 		anim.Play((b) ? "idle" : "destroied");
+        if(!b)
+        {
+            ServiceLocator.Locate<GameManager>().OnReset += Reset;
+        }
+        else
+        {
+            ServiceLocator.Locate<GameManager>().OnReset -= Reset;
+        }
 	}
+
+    public void Reset()
+    {
+        EnableTurret(true);
+    }
 }

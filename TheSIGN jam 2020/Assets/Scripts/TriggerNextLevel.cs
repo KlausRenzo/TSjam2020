@@ -78,5 +78,9 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 		{
 			isUnlocked = false;
 		}
+		if (hasBeenLockedSinceBeginning)
+		{
+			Unlock();
+		}
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnTriggerDamage : MonoBehaviour
 {
-	[SerializeField] private float ticDamage = 1.5f;
+	[SerializeField] private float howOftenDamage = .7f;
 	[SerializeField] private int damageAmountPerTic = 1;
 
 	private void OnTriggerEnter(Collider other)
@@ -14,7 +14,7 @@ public class OnTriggerDamage : MonoBehaviour
 		{
 			if (character.stats.isFireProof)
 			{
-				StartCoroutine(character.survival.TakeDamageOverTime(damageAmountPerTic, ticDamage));
+				StartCoroutine(character.survival.TakeDamageOverTime(damageAmountPerTic, howOftenDamage));
 			}
 			else
 			{

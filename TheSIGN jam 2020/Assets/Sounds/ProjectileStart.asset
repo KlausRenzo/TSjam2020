@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ProjectileStart
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ec0aa655d40e4de49b42e5c663a9755b, type: 3}
-  volume: {x: 0.13751672, y: 0.19759683}
+  volume: {x: 0.08067769, y: 0.14441314}
   pitch: {x: 0.98798394, y: 1.3858478}

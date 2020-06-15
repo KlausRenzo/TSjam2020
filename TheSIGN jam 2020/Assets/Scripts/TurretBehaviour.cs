@@ -27,7 +27,7 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 		startedForward = transform.forward;
-        instantiatedSmoke = Instantiate(smokeParticle, transform.position, Quaternion.identity);
+        instantiatedSmoke = Instantiate(smokeParticle, transform.position, smokeParticle.transform.rotation);
         instantiatedSmoke.SetActive(false);
 	}
 

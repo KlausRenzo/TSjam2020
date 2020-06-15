@@ -50,6 +50,7 @@ public class GameManager : Manager
         for(int i = 0; i <= currentCharacterNumber; i++)
         {
             characters[i].gameObject.SetActive(true);
+            Debug.Log("Spawn: " + spawnPoint.position);
             characters[i].transform.position = spawnPoint.position;
             characters[i].Reset();
             OnReset?.Invoke();

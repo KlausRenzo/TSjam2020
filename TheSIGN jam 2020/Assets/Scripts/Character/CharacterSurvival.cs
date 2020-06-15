@@ -10,7 +10,7 @@ public class CharacterSurvival : MonoBehaviour
     [ShowInInspector]private int currentHealth;
     public Action OnDeath;
 
-    public event Action<int> PlayerDamagedBeforeHealthIsSet;
+    public event Action<int,int> PlayerDamagedBeforeHealthIsSet;
     public int CurrentHealth => currentHealth;
     
     void Awake()
@@ -20,7 +20,7 @@ public class CharacterSurvival : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        PlayerDamagedBeforeHealthIsSet?.Invoke(currentHealth);
+        PlayerDamagedBeforeHealthIsSet?.Invoke(currentHealth,damageAmount);
         
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, character.stats.health);
         if(currentHealth <= 0)

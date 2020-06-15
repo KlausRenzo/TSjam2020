@@ -11,6 +11,8 @@ public class TurretBehaviour : MonoBehaviour
 	[SerializeField] private float fireRate = 1;
 	[SerializeField] private Transform barrelTip;
 	[SerializeField] private float range = 100;
+	[SerializeField] private int damageAmountPerShot = 1;
+
 
 	private CharacterState currentState = CharacterState.alive;
 	private float timer;
@@ -18,6 +20,8 @@ public class TurretBehaviour : MonoBehaviour
 	[SerializeField] private float treshOldDot = 0.5f;
 	private Animator anim;
 
+	public event Action OnTurretShooted;
+	
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
@@ -37,7 +41,7 @@ public class TurretBehaviour : MonoBehaviour
 
 			if (CanShoot())
 			{
-				Shoot();
+				Shoot(actualTarget.GetComponent<CharacterSurvival>());
 			}
 		}
 	}
@@ -77,10 +81,11 @@ public class TurretBehaviour : MonoBehaviour
 		return null;
 	}
 
-	private void Shoot()
+	private void Shoot(CharacterSurvival survival)
 	{
 		Projectile projectileGo = Instantiate(projectile, barrelTip.position, Quaternion.identity);
 		projectileGo.SetVelocity(mobilePart.forward);
+		survival.TakeDamage(damageAmountPerShot);
 	}
 
 	private void LookTowardsTarget(Transform target)

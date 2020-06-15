@@ -4252,12 +4252,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targets.Array.data[0]
       value: 
-      objectReference: {fileID: 286835184}
+      objectReference: {fileID: 12939165}
     - target: {fileID: 3174869467603046776, guid: 27a9b4060a826e84889ef16d3df2885d,
         type: 3}
       propertyPath: targets.Array.data[1]
       value: 
-      objectReference: {fileID: 12939165}
+      objectReference: {fileID: 286835184}
     - target: {fileID: 5802198513409720140, guid: 27a9b4060a826e84889ef16d3df2885d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6898,5 +6898,10 @@ PrefabInstance:
       propertyPath: rotationAnchor
       value: 
       objectReference: {fileID: 1334115799}
+    - target: {fileID: 900086558918182495, guid: d12b1298d5a366947a239b9e7e612335,
+        type: 3}
+      propertyPath: levelNameToLoad
+      value: Lvl 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12b1298d5a366947a239b9e7e612335, type: 3}

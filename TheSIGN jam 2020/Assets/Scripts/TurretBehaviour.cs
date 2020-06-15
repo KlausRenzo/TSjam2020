@@ -88,8 +88,8 @@ public class TurretBehaviour : MonoBehaviour
 
 	private void Shoot(CharacterSurvival survival)
 	{
-		Projectile projectileGo = Instantiate(projectile, barrelTip.position, Quaternion.identity);
-		projectileGo.SetVelocity(mobilePart.forward);
+		//Projectile projectileGo = Instantiate(projectile, barrelTip.position, Quaternion.identity);
+		//projectileGo.SetVelocity(mobilePart.forward);
 		survival.TakeDamage(damageAmountPerShot);
 	}
 

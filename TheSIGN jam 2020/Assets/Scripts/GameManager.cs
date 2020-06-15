@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.Scripts.Managers;
 using System;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Manager
 {
@@ -44,7 +45,7 @@ public class GameManager : Manager
         currentCharacterNumber++;
         if(currentCharacterNumber > characters.Count-1)
         {
-            return;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         for(int i = 0; i <= currentCharacterNumber; i++)
         {

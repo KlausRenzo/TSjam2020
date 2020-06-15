@@ -31,11 +31,20 @@ public class CharacterSurvival : MonoBehaviour
 
     public IEnumerator TakeDamageOverTime(int damageAmount,float howOftenDamage)
     {
+        float timer = 0;
+        
         while (character.currentState != CharacterState.dead)
         {
-            TakeDamage(damageAmount);
-            yield return new WaitForSeconds(howOftenDamage);
+            
+            if (timer >= howOftenDamage)
+            {
+                TakeDamage(damageAmount);
+                timer = 0;
+            }
+            timer += Time.deltaTime;
+            yield return null;
         }
+        StopCoroutine($"TakeDamageOverTime");
     }
     public void Die(string animationName = null)
     {

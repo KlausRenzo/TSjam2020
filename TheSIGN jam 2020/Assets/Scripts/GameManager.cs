@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 public class GameManager : Manager
 {
-    public Action OnReset;
+    public event Action OnReset;
     public List<Character> characters = new List<Character>();
     public Transform spawnPoint;
     public CharacterUI characterUi;
@@ -51,6 +51,7 @@ public class GameManager : Manager
             characters[i].gameObject.SetActive(true);
             characters[i].transform.position = spawnPoint.position;
             characters[i].Reset();
+            OnReset?.Invoke();
             //todo resettare a modino
         }
         ServiceLocator.Locate<InputManager>().ActiveEntity = characters[currentCharacterNumber].entity;

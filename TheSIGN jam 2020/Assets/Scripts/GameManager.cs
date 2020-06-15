@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Manager
 {
-    public Action OnReset;
+    public event Action OnReset;
     public List<Character> characters = new List<Character>();
     public Transform spawnPoint;
     public CharacterUI characterUi;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Managers;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -18,11 +19,13 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 	[SerializeField] private Ease animationEase;
 
 	private Quaternion startRotation;
+	private bool hasBeenLockedSinceBeginning;
 
 	private void Awake()
 	{
 		GetComponent<MeshRenderer>().enabled = false;
 		startRotation = rotationAnchor.rotation;
+		hasBeenLockedSinceBeginning = isUnlocked;
 	}
 
 	private void Start()
@@ -31,6 +34,16 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 		{
 			rotationAnchor.DORotate(new Vector3(animationRotationAngle, 0, 0), animationDuration + 1.5f).SetEase(animationEase);
 		}
+	}
+
+	private void OnEnable()
+	{
+		ServiceLocator.Locate<GameManager>().OnReset += Reset;
+	}
+
+	private void OnDisable()
+	{
+		ServiceLocator.Locate<GameManager>().OnReset -= Reset;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -59,5 +72,11 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 	public void Reset()
 	{
 		rotationAnchor.rotation = startRotation;
+		
+		//non in tutte le scene è lockata la sbarra
+		if (!hasBeenLockedSinceBeginning)
+		{
+			isUnlocked = false;
+		}
 	}
 }

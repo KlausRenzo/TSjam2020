@@ -6477,17 +6477,23 @@ PrefabInstance:
         type: 3}
       propertyPath: characters.Array.data[0]
       value: 
-      objectReference: {fileID: 286835180}
+      objectReference: {fileID: 12939161}
     - target: {fileID: 3354982703082362839, guid: 74d1fc3915769f74096502c482610af7,
         type: 3}
       propertyPath: characters.Array.data[1]
       value: 
-      objectReference: {fileID: 12939161}
+      objectReference: {fileID: 286835180}
     - target: {fileID: 3354982703082362839, guid: 74d1fc3915769f74096502c482610af7,
         type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 70427807}
+    - target: {fileID: 3354982703082362839, guid: 74d1fc3915769f74096502c482610af7,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3354982703082362839, guid: 74d1fc3915769f74096502c482610af7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d1fc3915769f74096502c482610af7, type: 3}
 --- !u!1001 &1965374564

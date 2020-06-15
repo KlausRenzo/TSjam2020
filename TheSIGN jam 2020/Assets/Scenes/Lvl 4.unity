@@ -1687,6 +1687,11 @@ PrefabInstance:
       propertyPath: survival
       value: 
       objectReference: {fileID: 286835175}
+    - target: {fileID: 6188706531151408161, guid: 013ca183d945b034ebde5ffe425b7342,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 286835180}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013ca183d945b034ebde5ffe425b7342, type: 3}
 --- !u!1001 &693430006
@@ -2867,6 +2872,11 @@ PrefabInstance:
       propertyPath: survival
       value: 
       objectReference: {fileID: 776657209}
+    - target: {fileID: 8354685076667124950, guid: 13cdb27c373bebd4bb99413cb47bc2ab,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1205379333}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cdb27c373bebd4bb99413cb47bc2ab, type: 3}
 --- !u!224 &974334959 stripped

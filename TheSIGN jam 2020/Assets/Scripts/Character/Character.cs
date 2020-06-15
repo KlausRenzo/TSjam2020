@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Player;
+﻿using System;
+using Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Character : MonoBehaviour
     public AnimationHandler animationHandler;
 
     public CharacterState currentState = CharacterState.alive;
+
+    public event Action PlayerResetted;
     
     void Awake()
     {
@@ -29,6 +32,7 @@ public class Character : MonoBehaviour
         currentState = CharacterState.alive;
         animationHandler.Play(animationHandler.idleAnimation);
         survival.ResetHealth();
+        PlayerResetted?.Invoke();
     }
 }
 

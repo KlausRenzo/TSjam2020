@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
 
 	private void OnCollisionEnter(Collision other)
 	{
-		HandleDestruction();
+		//HandleDestruction();
 	}
 
 	private void HandleDestruction()

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496d2d956e034df389804f6feb451277, type: 3}
+  m_Name: DeactivatedTurret
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: affcb1295df21ba4dbc92e5a7d91b772, type: 3}
+  volume: {x: 0.2920284, y: 0.28729287}
+  pitch: {x: 0.6629833, y: 0.6582479}

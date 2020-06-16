@@ -4313,11 +4313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1423756585142350, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44
+      value: -4.43
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4325,7 +4325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.81
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4361,7 +4361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalScale.y
@@ -4369,7 +4369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4096173700903688, guid: 1a55c08bb94fc6942a5ff49ed112239a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 23965124029955208, guid: 1a55c08bb94fc6942a5ff49ed112239a,
         type: 3}
@@ -4396,8 +4396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b939d73052bf34692358f444ff33e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScaleAmount: {x: 40, y: 1, z: 40}
-  minScaleAmount: {x: 25, y: 1, z: 25}
+  maxScaleAmount: {x: 5, y: 1, z: 5}
+  minScaleAmount: {x: 2.5, y: 1, z: 2.5}
   animSpeed: 0.5
   ease: 2
 --- !u!4 &1188132314 stripped

@@ -12,8 +12,10 @@ public class TurretBehaviour : MonoBehaviour
 	[SerializeField] private Transform barrelTip;
 	[SerializeField] private float range = 100;
 	[SerializeField] private int damageAmountPerShot = 1;
-    public GameObject smokeParticle;
-    private GameObject instantiatedSmoke;
+	[SerializeField] private Sound deactivatedSound;
+
+	public GameObject smokeParticle;
+	private GameObject instantiatedSmoke;
 
 	private CharacterState currentState = CharacterState.alive;
 	private float timer;
@@ -22,13 +24,13 @@ public class TurretBehaviour : MonoBehaviour
 	private Animator anim;
 
 	public event Action OnTurretShooted;
-	
+
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
 		startedForward = transform.forward;
-        instantiatedSmoke = Instantiate(smokeParticle, transform.position, smokeParticle.transform.rotation);
-        instantiatedSmoke.SetActive(false);
+		instantiatedSmoke = Instantiate(smokeParticle, transform.position, smokeParticle.transform.rotation);
+		instantiatedSmoke.SetActive(false);
 	}
 
 	private void Update()
@@ -42,7 +44,7 @@ public class TurretBehaviour : MonoBehaviour
 
 			LookTowardsTarget(actualTarget);
 
-			if (CanShoot() )
+			if (CanShoot())
 			{
 				Shoot(actualTarget.GetComponent<CharacterSurvival>());
 			}
@@ -67,8 +69,8 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		foreach (Transform target in targets)
 		{
-			if(target.GetComponent<Character>().currentState == CharacterState.dead) continue;
-			
+			if (target.GetComponent<Character>().currentState == CharacterState.dead) continue;
+
 			Vector3 dir = (target.position - barrelTip.position).normalized;
 
 			Ray ray = new Ray(barrelTip.position, dir);
@@ -88,8 +90,8 @@ public class TurretBehaviour : MonoBehaviour
 
 	private void Shoot(CharacterSurvival survival)
 	{
-		//Projectile projectileGo = Instantiate(projectile, barrelTip.position, Quaternion.identity);
-		//projectileGo.SetVelocity(mobilePart.forward);
+		Projectile projectileGo = Instantiate(projectile, barrelTip.position, Quaternion.identity);
+		projectileGo.SetVelocity(mobilePart.forward);
 		survival.TakeDamage(damageAmountPerShot);
 	}
 
@@ -111,19 +113,21 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		currentState = (b) ? CharacterState.alive : CharacterState.dead;
 		anim.Play((b) ? "idle" : "destroied");
-        instantiatedSmoke?.SetActive(!b);
-        if(!b)
-        {
-            ServiceLocator.Locate<GameManager>().OnReset += Reset;
-        }
-        else
-        {
-            ServiceLocator.Locate<GameManager>().OnReset -= Reset;
-        }
+		instantiatedSmoke?.SetActive(!b);
+		if (!b)
+		{
+			deactivatedSound.Play(GetComponent<AudioSource>());
+
+			ServiceLocator.Locate<GameManager>().OnReset += Reset;
+		}
+		else
+		{
+			ServiceLocator.Locate<GameManager>().OnReset -= Reset;
+		}
 	}
 
-    public void Reset()
-    {
-        EnableTurret(true);
-    }
+	public void Reset()
+	{
+		EnableTurret(true);
+	}
 }

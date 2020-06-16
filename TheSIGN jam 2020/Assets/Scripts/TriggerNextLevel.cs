@@ -17,7 +17,7 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 	[SerializeField] private float animationRotationAngle = 50;
 	[SerializeField] private float animationDuration = 2;
 	[SerializeField] private Ease animationEase;
-
+	[SerializeField] private Sound UnlockSound;
 	private Quaternion startRotation;
 	private bool hasBeenLockedSinceBeginning;
 
@@ -64,6 +64,7 @@ public class TriggerNextLevel : MonoBehaviour, IUnlockable
 	[Button]
 	public void Unlock()
 	{
+		UnlockSound.Play(GetComponent<AudioSource>());
 		rotationAnchor.DORotate(new Vector3(animationRotationAngle, 0, 0), animationDuration).SetEase(animationEase);
 		isUnlocked = true;
 	}
